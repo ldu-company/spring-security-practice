@@ -1,0 +1,30 @@
+# logging 레벨 설정
+logging:
+  level:
+    root: INFO
+    sql: ERROR
+# Overloaded POST 사용
+spring:
+  mvc:
+    hiddenmethod:
+      filter:
+        enabled: true
+  h2:
+    console:
+      enabled: true
+  jpa:
+    show-sql: true
+    defer-datasource-initialization: true
+    properties:
+      hibernate:
+        format_sql: true
+        use_sql_comments: true
+  #        ddl-auto=create: drop
+  datasource:
+    url: jdbc:h2:mem:testdb
+# session
+server:
+  port: 8080
+  servlet:
+    session:
+      timeout: 10m # 기본이 30분이고 최소는 1분입니다.
